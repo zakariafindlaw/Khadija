@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Khadija &amp; Zaid — Wedding Invitation</title>
+<title>Khadeeja &amp; Zaid — Wedding Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
   }
   a{color:inherit;}
 
-  /* Islamic geometric lattice on dark luxury background */
+  /* subtle Islamic geometric lattice texture */
   .islamic-pattern{
     position:absolute;inset:0;pointer-events:none;z-index:-1;
     opacity:.35;
@@ -64,14 +64,13 @@
     font-size:11px;letter-spacing:.5px;font-style:italic;opacity:.85;
   }
 
-  /* ===================== MASHRABIYA DOORS INTRO ===================== */
+  /* ===================== FANOUS LANTERN INTRO ===================== */
   #curtain-screen{
     position:fixed;inset:0;
     overflow:hidden;
     background:linear-gradient(180deg,#070506 0%,#150e12 100%);
     z-index:100;
     cursor:pointer;
-    perspective:1600px;
     transition:opacity .9s ease, visibility .9s ease;
   }
   #curtain-screen.gone{opacity:0;visibility:hidden;pointer-events:none;}
@@ -79,114 +78,91 @@
   .stage-glow{
     position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
     width:75vmax;height:75vmax;
-    background:radial-gradient(circle,rgba(212,175,55,.2),rgba(0,0,0,0) 65%);
+    background:radial-gradient(circle,rgba(212,175,55,.25),rgba(0,0,0,0) 65%);
     z-index:1;
   }
 
-  /* Dark luxury door panel with gold mesh motif */
-  .curtain{
-    position:absolute;top:0;bottom:0;width:52%;
-    z-index:10;
-    background:
-      repeating-conic-gradient(from 45deg, rgba(212,175,55,.08) 0 25%, transparent 0 50%) 0 0/34px 34px,
-      linear-gradient(160deg,#1c1216 0%,#110a0d 55%,#080406 100%);
-    box-shadow:inset -22px 0 40px rgba(0,0,0,.8), inset 0 0 30px rgba(212,175,55,.15);
-    backface-visibility:hidden;
-    transition:transform 1.35s cubic-bezier(.76,0,.24,1);
-  }
-  .curtain::before{
-    content:"";
-    position:absolute;inset:0;
-    background:radial-gradient(circle at 50% 50%, rgba(212,175,55,.15), rgba(0,0,0,0) 70%);
-    opacity:.9;
-  }
-  .curtain::after{
-    content:"";
-    position:absolute;inset:14px;
-    border:1px solid rgba(212,175,55,.45);
-  }
-  .curtain.left{ left:0; transform-origin:left center; border-right:2px solid var(--gold); }
-  .curtain.right{ right:0; transform-origin:right center; border-left:2px solid var(--gold); }
-  #curtain-screen.open .curtain.left{ transform:rotateY(-102deg); }
-  #curtain-screen.open .curtain.right{ transform:rotateY(102deg); }
-
-  .door-handle{
-    position:absolute;top:50%;transform:translateY(-50%);
-    width:30px;height:30px;border-radius:50%;
-    border:3px solid var(--gold-light);
-    background:radial-gradient(circle at 35% 30%, rgba(212,175,55,.6), rgba(20,10,12,.9));
-    box-shadow:0 2px 10px rgba(0,0,0,.8), 0 0 8px rgba(212,175,55,.4);
-    z-index:11;
-  }
-  .curtain.left .door-handle{ right:20px; }
-  .curtain.right .door-handle{ left:20px; }
-
-  .star-ring{
-    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:172px;height:172px;
-    z-index:19;
-    animation:starSpin 22s linear infinite;
-  }
-  .star-ring::before,
-  .star-ring::after{
-    content:"";
-    position:absolute;inset:0;
-    border:1px solid rgba(212,175,55,.6);
-  }
-  .star-ring::after{ transform:rotate(45deg); }
-  @keyframes starSpin{ 0%{transform:translate(-50%,-50%) rotate(0deg);} 100%{transform:translate(-50%,-50%) rotate(360deg);} }
-  #curtain-screen.open .star-ring{ opacity:0; transition:opacity .4s ease; }
-
-  .medallion{
-    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  /* the hanging lantern, swaying gently until tapped */
+  .lantern-wrap{
+    position:absolute;top:22%;left:50%;
+    transform:translate(-50%,0) rotate(-3deg);
+    transform-origin:top center;
+    width:130px;
     z-index:20;
-    width:118px;height:118px;border-radius:50%;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 35% 30%,var(--gold-light) 0%,var(--gold) 60%,#8a6d1c 100%);
-    box-shadow:0 0 0 6px rgba(212,175,55,.2), 0 10px 30px rgba(0,0,0,.8);
     cursor:pointer;
-    animation:medallionPulse 2.6s ease-in-out infinite;
-    transition:transform .6s cubic-bezier(.3,.6,.3,1.4), opacity .5s ease;
+    animation:lanternSwing 4.5s ease-in-out infinite;
+    transition:opacity .6s ease .5s;
   }
-  @keyframes medallionPulse{
-    0%,100%{transform:translate(-50%,-50%) scale(1);}
-    50%{transform:translate(-50%,-50%) scale(1.05);}
+  @keyframes lanternSwing{
+    0%,100%{transform:translate(-50%,0) rotate(-3deg);}
+    50%{transform:translate(-50%,0) rotate(3deg);}
   }
-  .medallion .mono{font-family:'Great Vibes','Brush Script MT',cursive;font-size:32px;color:#120b0d;font-weight:bold;}
-  .medallion .tap{font-size:8px;letter-spacing:1.5px;color:#120b0d;text-transform:uppercase;margin-top:2px;font-weight:600;}
-  .medallion .tap-ar{font-family:'Amiri',serif;direction:rtl;font-size:11px;color:#120b0d;margin-top:1px;font-weight:bold;}
-  #curtain-screen.open .medallion{
-    animation:none;
-    opacity:0;
-    transform:translate(-50%,-50%) scale(.5);
-  }
+  #curtain-screen.open .lantern-wrap{ animation:none; opacity:0; }
 
-  .medallion-glow{
-    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:20px;height:20px;border-radius:50%;
-    background:radial-gradient(circle,#fff 0%,rgba(212,175,55,.9) 35%,rgba(212,175,55,0) 70%);
-    opacity:0;z-index:21;pointer-events:none;
+  .lantern-chain{
+    width:2px;height:34px;margin:0 auto;
+    background:linear-gradient(var(--gold-light),var(--gold));
   }
-  #curtain-screen.open .medallion-glow{
-    animation:curtainBurst 1.3s ease-out .3s forwards;
+  .lantern-cap{
+    width:60px;height:16px;margin:0 auto;
+    background:linear-gradient(160deg,var(--gold-light),var(--gold) 60%,#8a6d1c);
+    border-radius:8px 8px 2px 2px;
+    box-shadow:0 2px 8px rgba(0,0,0,.8);
   }
-  @keyframes curtainBurst{
-    0%{opacity:0;width:20px;height:20px;}
-    45%{opacity:1;width:440px;height:440px;}
-    100%{opacity:0;width:540px;height:540px;}
+  .lantern-body{
+    position:relative;
+    width:126px;height:150px;margin:0 auto;
+    border-radius:50% 50% 32% 32% / 55% 55% 45% 45%;
+    background:
+      repeating-linear-gradient(90deg, rgba(0,0,0,.6) 0 3px, transparent 3px 17px),
+      radial-gradient(circle at 50% 42%, rgba(245,229,184,.9), rgba(180,135,30,.6) 72%);
+    border:3px solid var(--gold);
+    box-shadow:0 0 46px rgba(212,175,55,.6), inset 0 0 30px rgba(245,229,184,.5);
+    overflow:hidden;
+  }
+  .lantern-glow-core{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(1);
+    width:52px;height:74px;border-radius:50%;
+    background:radial-gradient(circle,#ffffff 0%,#f5e5b8 45%,rgba(212,175,55,0) 75%);
+    animation:flicker 1.8s ease-in-out infinite;
+    filter:blur(1px);
+    transition:transform 1.1s cubic-bezier(.2,.7,.3,1), opacity 1s ease .1s;
+  }
+  @keyframes flicker{
+    0%,100%{opacity:.85;transform:translate(-50%,-50%) scale(1);}
+    50%{opacity:1;transform:translate(-50%,-50%) scale(1.08);}
+  }
+  #curtain-screen.open .lantern-glow-core{
+    animation:none;
+    opacity:1;
+    transform:translate(-50%,-50%) scale(14);
+  }
+  .lantern-finial{
+    width:0;height:0;margin:0 auto;
+    border-left:11px solid transparent;
+    border-right:11px solid transparent;
+    border-top:24px solid var(--gold);
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.8));
+  }
+  .lantern-label{
+    text-align:center;margin-top:16px;
+    color:var(--maroon);font-size:9px;letter-spacing:1.8px;text-transform:uppercase;font-weight:600;
+  }
+  .lantern-label .ar{
+    display:block;font-family:'Amiri',serif;direction:rtl;font-size:12px;letter-spacing:0;margin-top:3px;font-weight:bold;
   }
 
   .sparkle-layer{position:absolute;inset:0;z-index:15;pointer-events:none;overflow:hidden;}
   .sparkle-layer i{
-    position:absolute;top:-20px;color:var(--gold-light);opacity:0;font-style:normal;
+    position:absolute;bottom:20%;color:var(--gold-light);opacity:0;font-style:normal;
   }
   #curtain-screen.open .sparkle-layer i{
-    animation-name:sparkleFall;animation-timing-function:ease-in;animation-fill-mode:forwards;
+    animation-name:emberRise;animation-timing-function:ease-out;animation-fill-mode:forwards;
   }
-  @keyframes sparkleFall{
-    0%{opacity:0;transform:translateY(-20px) rotate(0deg);}
-    15%{opacity:1;}
-    100%{opacity:0;transform:translateY(560px) rotate(200deg);}
+  @keyframes emberRise{
+    0%{opacity:0;transform:translateY(0) rotate(0deg);}
+    12%{opacity:1;}
+    100%{opacity:0;transform:translateY(-520px) rotate(160deg);}
   }
 
   .tap-hint{
@@ -308,7 +284,7 @@
 
   /* EVENTS */
   .events-section{background:linear-gradient(180deg,var(--blush-2),var(--blush));overflow:hidden;}
-  .events-title{font-family:'Great Vibes','Brush Script MT',cursive;font-size:32px;color:var(--maroon);}
+  .events-title{font-family:'Great Vibes','Brush Script MT',cursive;font-size:38px;color:var(--maroon);}
   .timeline{max-width:380px;margin:30px auto 0;text-align:left;position:relative;padding-left:26px;}
   .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--gold);}
   .tl-item{position:relative;margin-bottom:28px;}
@@ -318,9 +294,9 @@
     background:var(--gold);border:2px solid var(--gold-light);
     box-shadow:0 0 8px var(--gold);
   }
-  .tl-item h3{margin:0 0 3px;font-family:Georgia,serif;color:var(--maroon);font-size:19px;}
-  .tl-item .when{font-size:13px;color:var(--ink);opacity:.9;margin-bottom:3px;}
-  .tl-item .where{font-size:12px;color:var(--rose-dark);letter-spacing:.3px;}
+  .tl-item h3{margin:0 0 3px;font-family:Georgia,serif;color:var(--maroon);font-size:20px;}
+  .tl-item .when{font-size:13.5px;color:var(--ink);opacity:.9;margin-bottom:3px;}
+  .tl-item .where{font-size:12.5px;color:var(--rose-dark);letter-spacing:.3px;line-height:1.4;}
 
   .venue-card{
     margin:34px auto 0;max-width:340px;padding:24px 20px;
@@ -328,10 +304,10 @@
     box-shadow:0 8px 25px rgba(0,0,0,.6);
   }
   .venue-card .pin{font-size:20px;}
-  .venue-card h4{font-family:'Great Vibes','Brush Script MT',cursive;font-size:26px;color:var(--maroon);margin:6px 0 2px;}
-  .venue-card p{font-size:13px;margin:0 0 14px;color:var(--ink);}
+  .venue-card h4{font-family:'Great Vibes','Brush Script MT',cursive;font-size:30px;color:var(--maroon);margin:6px 0 2px;}
+  .venue-card p{font-size:13px;margin:0 0 6px;color:var(--ink);}
   .map-btn{
-    display:inline-block;padding:10px 26px;border:1px solid var(--gold);
+    display:inline-block;margin-top:10px;padding:10px 26px;border:1px solid var(--gold);
     color:var(--maroon);text-decoration:none;letter-spacing:1.5px;font-size:11px;
     text-transform:uppercase;border-radius:30px;transition:.3s;background:rgba(212,175,55,.1);
   }
@@ -352,20 +328,20 @@
 </head>
 <body>
 
-  <!-- ===================== MASHRABIYA DOORS INTRO ===================== -->
+  <!-- ===================== FANOUS LANTERN INTRO ===================== -->
   <div id="curtain-screen" onclick="openCurtains()">
     <div class="stage-glow"></div>
     <div class="sparkle-layer" id="sparkleLayer"></div>
-    <div class="curtain left"><div class="door-handle"></div></div>
-    <div class="curtain right"><div class="door-handle"></div></div>
-    <div class="star-ring"></div>
-    <div class="medallion-glow"></div>
-    <div class="medallion">
-      <span class="mono">K&amp;Z</span>
-      <span class="tap">Tap to Enter</span>
-      <span class="tap-ar">افتح</span>
+    <div class="lantern-wrap">
+      <div class="lantern-chain"></div>
+      <div class="lantern-cap"></div>
+      <div class="lantern-body">
+        <div class="lantern-glow-core"></div>
+      </div>
+      <div class="lantern-finial"></div>
+      <div class="lantern-label">Tap to Light the Way<span class="ar">افتح</span></div>
     </div>
-    <p class="tap-hint">✦ Tap to open the doors ✦</p>
+    <p class="tap-hint">✦ Tap the lantern to begin ✦</p>
   </div>
 
   <!-- ===================== MAIN INVITATION ===================== -->
@@ -379,7 +355,7 @@
       <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
       <div class="welcome-line">We joyfully invite you</div>
       <p class="welcome-sub">to celebrate the Nikah &amp; Wedding of</p>
-      <div class="names">Khadija</div>
+      <div class="names">Khadeeja</div>
       <span class="amp">&amp;</span>
       <div class="names">Mohd Zaid</div>
       <p class="arabic-line" style="color:var(--rose-dark);margin:6px 0 0;">زفاف مبارك</p>
@@ -409,14 +385,14 @@
       <div class="divider"></div>
       <div class="heart-date">
         <div class="l1">Save The Date</div>
-        <div class="l2">NIKAH &amp; BARAT</div>
+        <div class="l2">NIKKAH</div>
         <div class="l3">October 22, 2026</div>
       </div>
     </section>
 
     <!-- COUNTDOWN -->
     <section class="countdown-section fade-up">
-      <div class="countdown-title">Counting Down to Nikah</div>
+      <div class="countdown-title">Counting Down to Nikkah</div>
       <div class="divider"></div>
       <div class="countdown-boxes">
         <div class="cbox"><div class="num" id="cd-days">00</div><div class="lab">Days</div></div>
@@ -429,59 +405,56 @@
     <!-- EVENTS -->
     <section class="events-section fade-up">
       <div class="confetti" id="confetti-events"></div>
-      <div class="events-title">Wedding Functions</div>
+      <div class="events-title">Wedding Events</div>
       <p class="arabic-line" style="color:var(--rose-dark);margin:0;">دعوة زفاف</p>
       <div class="divider"></div>
       <div class="timeline">
         <div class="tl-item">
-          <h3>Mandha &amp; Mehndi</h3>
-          <div class="when">Wednesday, October 21, 2026 · 7:30 PM</div>
-          <div class="where">Heera Garden</div>
+          <h3>Mandha</h3>
+          <div class="when">Wednesday, October 21, 2026</div>
+          <div class="where">At home</div>
         </div>
         <div class="tl-item">
-          <h3>Nikah &amp; Barat Arrival</h3>
-          <div class="when">Thursday, October 22, 2026 · 7:00 PM</div>
-          <div class="where">Heera Garden</div>
-        </div>
-        <div class="tl-item">
-          <h3>Walima</h3>
-          <div class="when">Friday, October 23, 2026 · 7:30 PM Dinner</div>
+          <h3>Nikkah</h3>
+          <div class="when">Thursday, October 22, 2026</div>
+          <div class="where">Diamond Farm House<br>Charthwal road, near Hp pump</div>
         </div>
       </div>
 
       <div class="venue-card">
         <div class="pin">📍</div>
-        <h4>Heera Garden</h4>
-        <p>Main Wedding Venue &amp; Celebrations</p>
-        <a class="map-btn" href="https://maps.app.goo.gl/5CAqjbVgjNYchVDr5" target="_blank" rel="noopener">Get Directions</a>
+        <h4>Diamond Farm House</h4>
+        <p style="font-family:'Great Vibes',cursive;font-size:22px;color:var(--maroon);margin:8px 0 4px;">All ceremonies &amp; the Nikha dinner</p>
+        <p style="font-size:12px;opacity:.8;">Charthwal road, near Hp pump</p>
+        <a class="map-btn" href="https://maps.google.com/?q=Diamond+Farm+House+Charthwal+road" target="_blank" rel="noopener">Get Directions</a>
       </div>
     </section>
 
     <!-- FOOTER -->
     <section class="footer fade-up">
       <div class="islamic-pattern"></div>
-      <div class="amp2">Khadija &amp; Zaid</div>
+      <div class="amp2">Khadeeja &amp; Zaid</div>
       <p class="thanks">With joyous hearts, Nadeem Ahmed &amp; Family cordially invite you to join us in celebrating this blessed union.</p>
       <div class="divider moon"></div>
-      <p class="arabic-line" style="margin:8px 0 4px;">بارك الله لك وبارك عليك وجمع بينكما في خير</p>
+      <p class="arabic-line" style="margin:8px 0 4px;">بارك الله لك وبارك عليك وجمع بينهما في خير</p>
       <p class="translit">Baraka Allahu laka wa baraka 'alayka wa jama'a baynakuma fi khair</p>
       <p class="translit" style="opacity:.7;">May Allah bless you and shower His blessings upon you, and unite you both in goodness</p>
-      <div class="tag" style="margin-top:16px;">#KandZ · 21–23 Oct 2026</div>
+      <div class="tag" style="margin-top:16px;">#KandZ · 21–22 Oct 2026</div>
     </section>
 
   </div>
 
 <script>
-  // ---------- Door open ----------
+  // ---------- Lantern open ----------
   (function(){
     var layer = document.getElementById('sparkleLayer');
-    var chars = ['✦','✧','◆','☾'];
+    var chars = ['✦','✧','·'];
     var html = '';
-    for(var i=0;i<26;i++){
-      var left = Math.random()*100;
-      var dur = (2.6+Math.random()*1.6).toFixed(2);
-      var delay = (Math.random()*0.9).toFixed(2);
-      var size = (10+Math.random()*12).toFixed(0);
+    for(var i=0;i<24;i++){
+      var left = 30 + Math.random()*40;
+      var dur = (2.2+Math.random()*1.4).toFixed(2);
+      var delay = (Math.random()*0.7).toFixed(2);
+      var size = (8+Math.random()*10).toFixed(0);
       var ch = chars[Math.floor(Math.random()*chars.length)];
       html += '<i style="left:'+left+'%;font-size:'+size+'px;animation-duration:'+dur+'s;animation-delay:'+delay+'s;">'+ch+'</i>';
     }
@@ -586,7 +559,7 @@
     canvas.addEventListener('touchend', end);
   })();
 
-  // ---------- Countdown targeted to Nikah (Oct 22, 2026, 7:00 PM) ----------
+  // ---------- Countdown targeted to Nikkah (Oct 22, 2026, 7:00 PM) ----------
   (function(){
     var target = new Date('2026-10-22T19:00:00');
     function pad(n){ return n < 10 ? '0'+n : ''+n; }
